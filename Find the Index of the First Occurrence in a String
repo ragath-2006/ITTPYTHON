@@ -1,0 +1,31 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        n = len(haystack)
+        m = len(needle)
+
+        if m > n:
+            return -1
+
+        for i in range(n - m + 1):
+            match = True
+            for j in range(m):
+                if haystack[i + j] != needle[j]:
+                    match = False
+                    break
+            if match:
+                return i
+
+        return -1
+
+haystack = "sadbutsad"
+needle = "sad"
+
+obj = Solution()
+result = obj.strStr(haystack, needle)
+print("Output:", result)
+
+haystack2 = "leetcode"
+needle2 = "leeto"
+
+result2 = obj.strStr(haystack2, needle2)
+print("Output:", result2)
